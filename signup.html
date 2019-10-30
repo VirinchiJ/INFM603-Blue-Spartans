@@ -49,15 +49,30 @@
         </nav>
 
       <form class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
+        <h2 class="form-signin-heading">Welcome to Spartan</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <br>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-
+        <br>
+        <label for="inputFirstName" class="sr-only">First Name</label>
+        <input type="text" id="firstName" class="form-control" placeholder="First Name" required>
+        <br>
+        <label for="inputLastName" class="sr-only">Last Name</label>
+        <input type="text" id="lsattName" class="form-control" placeholder="Last Name" required>
+        <br>
+        <select name="gender" required>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="non-binary">Non-binary</option>
+          <option value="no answer">Prefer not to answer</option>
+        </select>
+        <br>
+        <br>
         <p>Not a user? <a href="signup.html">Sign up</a></p>
         
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
       </form>
 
     </div> <!-- /container -->
