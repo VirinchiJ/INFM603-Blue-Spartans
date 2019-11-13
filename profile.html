@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Dashboard Template for Bootstrap</title>
+    <title>Profile</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
@@ -49,83 +49,30 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Workout Log <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Weight Chart</a></li>
-            <li><a href="#">Profile</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th id="labels"></th>
-                  <th id="day1">Date</th>
-                  <th id="day2">Date</th>
-                  <th id="day3">Date</th>
-                  <th id="day4">Date</th>
-                  <th id="day5">Date</th>
-                  <th id=day6>Date</th>
-                  <th id=day7>Date</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr id="exercise">
-                  <td>Exercise</td>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                  <td>placeholder</td>
-                  <td>placeholder</td>
-                </tr>
-                <tr id="calories">
-                  <td>Calories</td>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                  <td>placeholder</td>
-                  <td>placeholder</td>
-                </tr>
-                <tr id="duration">
-                  <td>Duration/Repetitions</td>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                  <td>placeholder</td>
-                  <td>placeholder</td>
-                </tr>
-                <tr id="weight">
-                  <td>Weight</td>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                  <td>placeholder</td>
-                  <td>placeholder</td>
-                </tr>
-                <tr id="comment">
-                  <td>Comment</td>
-                  <td>1,004</td>
-                  <td>dapibus</td>
-                  <td>diam</td>
-                  <td>Sed</td>
-                  <td>nisi</td>
-                  <td>placeholder</td>
-                  <td>placeholder</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+              <li><a href="./exlog.html">Workout Log</a></li>
+              <li><a href="./weightchart.html">Weight Chart</a></li>
+              <li class="active"><a href="#">Profile<span class="sr-only">(current)</span></a></li>
+            </ul>
           </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Profile</h1>
+          <form action="/action_page.php">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" value=""><br>
+            <label for="age">Age</label>
+            <input type="text" name="age" id="age" value=""><br>
+            <label for="other">Gender</label>
+            <input type="text" name="gender" id="gender" value=""><br>
+            <label for="other">Height</label>
+            <input type="text" name="height" id="height" value=""><br>
+            <label for="other">Target Weight</label>
+            <input type="text" name="height" id="height" value=""><br>
+            <br>
+            <br>
+            <input type="submit" value="Submit">
+          </form>
         </div>
       </div>
     </div>
