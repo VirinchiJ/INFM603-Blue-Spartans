@@ -87,11 +87,12 @@
 						<li><a href="./exlog.html">Workout Log <span class="sr-only">(current)</span></a></li>
 						<li class="active"><a href="#">Weight Chart</a></li>
 						<li><a href="./profile.html">Profile</a></li>
+						<li><a href="./signin.html" class="text-danger">Sign Out</a></li>
 					</ul>
 				</div>
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 					<h1>Your Weight</h1>       
-					<canvas id="chart" style="width: 100%; height: 65vh; background: #222; border: 1px solid #555652; margin-top: 10px;"></canvas>
+					<canvas id="chart" style="width: 100%; height: 65vh; background: #F0F0F0; border: 1px solid #555652; margin-top: 10px;"></canvas>
 
 					<script>
 						var ctx = document.getElementById("chart").getContext('2d');
@@ -103,7 +104,7 @@
 								label: 'Current Weight',
 								data: [<?php echo $Current_Weight; ?>],
 								backgroundColor: 'transparent',
-								borderColor:'rgba(255,99,132)',
+								borderColor:'rgba(77, 166, 255)',
 								borderWidth: 3
 							}]		        
 						},
@@ -112,7 +113,7 @@
 						options:{
 							scales: {scales:{yAxes: [{beginAtZero: false}], xAxes: [{autoskip: true, maxTicketsLimit: 20}]}},
 							tooltips:{mode: 'index'},
-							legend:{display: true, position: 'top', labels: {fontColor: 'rgb(255,255,255)', fontSize: 16}}
+							legend:{display: true, position: 'top', labels: {fontColor: 'rgb(0,0,0)', fontSize: 16}}
 						}
 						}
 					);

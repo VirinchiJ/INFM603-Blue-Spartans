@@ -75,29 +75,48 @@
               <li><a href="./exlog.html">Workout Log</a></li>
               <li><a href="./chart.php">Weight Chart</a></li>
               <li class="active"><a href="#">Profile<span class="sr-only">(current)</span></a></li>
+              <li><a href="./signin.html" class="text-danger">Sign Out</a></li>
             </ul>
           </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Profile</h1>
           <form action="./py/ProfileUpdateScript.py">
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name" value=""><br>
-            <label for="age">Age</label>
-            <input type="text" name="age" id="age" value=""><br>
-            <label for="other">Gender</label>
-            <select id ="gender" name="gender" required>
-			  <option value="male">Male</option>
-			  <option value="female">Female</option>
-			  <option value="non-binary">Non-binary</option>
-			  <option value="no answer">Prefer not to answer</option>
-			</select>
-			<br>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" name="name" id="name" placeholder=""><br>
+              <label for="age">Age</label>
+              <input type="text" class="form-control" name="age" id="age" placeholder=""><br>
+            </div>
+
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <select class="form-control" name="gender" id="gender">
+                <option>Male</option>
+                <option>Female</option>
+                <option>Non-binary</option>
+                <option>Prefer not to answer</option>
+              </select>
+            </div>
+
+            <br>
+
+            <div class="form-group">
+              <label for="height">Height (in.)</label>
+              <input type="text" class="form-control" name="height" id="height" placeholder=""><br>
+              <label for="weight">Target Weight</label>
+              <input type="text" class="form-control" name="weight" id="weight" placeholder=""><br>
+            </div>
+          </form>
+
+            <!--
+            <br>
             <label for="other">Height</label>
             <input type="text" name="height" id="height" value=""><br>
             <label for="other">Target Weight</label>
             <input type="text" name="weight" id="weight" value=""><br>
             <br>
             <br>
+          -->
             <input type="submit" value="Submit">
           </form>
         </div>
