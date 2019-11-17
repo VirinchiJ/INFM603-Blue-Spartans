@@ -34,7 +34,7 @@
 	<script type="text/javascript">
 	function init()
 	{
-		$.getJSON( "/ProfileGetScript.py", function( data ) {
+		$.getJSON( "./py/ProfileGetScript.py", function( data ) {
             $.each(data, function (index, val) {
 				   $("#name").val(val.First_Name);
 				   $("#age").val(val.Age);
@@ -79,7 +79,7 @@
           </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Profile</h1>
-          <form action="/ProfileUpdateScript.py">
+          <form action="./py/ProfileUpdateScript.py">
             <label for="name">Name</label>
             <input type="text" name="name" id="name" value=""><br>
             <label for="age">Age</label>
