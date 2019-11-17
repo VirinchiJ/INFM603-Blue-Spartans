@@ -66,19 +66,24 @@
 
 	<body>
 		
-		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">Hello<span id="userName"></span></a>
-				</div>
-			</div>
-		</nav>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Hello<span id="userName"></span></a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="https://www.mayoclinic.org/healthy-lifestyle/fitness/in-depth/fitness/art-20048269" target="_blank">Getting Started</a></li>
+          <li><a href="https://www.jefit.com/exercises/" target="_blank">Exercises</a></li>
+          <li><a href="https://www.webmd.com/fitness-exercise/default.htm" target="_blank">Health</a></li>
+        </ul>
+      </div>
+    </nav>
 
 		<div class="container-fluid">
 			<div class="row">
