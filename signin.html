@@ -51,11 +51,15 @@
 			
 			function( data ) {
 				$.each(data, function (index, val) {
-				   output = val.Tag;
-				   console.log(output)
-				   if(output == "success")
+				   status = val.Tag;
+				   userid = val.UserId;
+				   roleid = val.RoleId;
+				   console.log(status);
+				   console.log(userid);
+				   console.log(roleid);
+				   if(status == "success")
 								{	
-									alert("Login Successful")
+									alert("Login Successful ")
 									//Navigate to Dashboard page
 								}
 							else
