@@ -64,35 +64,61 @@
 
 	</head>
 
-	<body>	   
-	    <div class="container">	
-	    <h1>Your weight fluctuation by date</h1>       
-			<canvas id="chart" style="width: 100%; height: 65vh; background: #222; border: 1px solid #555652; margin-top: 10px;"></canvas>
+	<body>
+		
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Hello<span id="userName"></span></a>
+				</div>
+			</div>
+		</nav>
 
-			<script>
-				var ctx = document.getElementById("chart").getContext('2d');
-    			var myChart = new Chart(ctx, {
-        		type: 'line',
-		        data: {
-		            labels: [<?php echo $Date; ?>],
-					datasets: [{
-		                label: 'Current Weight',
-		                data: [<?php echo $Current_Weight; ?>],
-		                backgroundColor: 'transparent',
-		                borderColor:'rgba(255,99,132)',
-		                borderWidth: 3
-		            }]		        
-				},
-		            
-		     
-		        options:{
-		            scales: {scales:{yAxes: [{beginAtZero: false}], xAxes: [{autoskip: true, maxTicketsLimit: 20}]}},
-		            tooltips:{mode: 'index'},
-		            legend:{display: true, position: 'top', labels: {fontColor: 'rgb(255,255,255)', fontSize: 16}}
-		        }
-				}
-		    );
-			</script>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-3 col-md-2 sidebar">
+					<ul class="nav nav-sidebar">
+						<li><a href="./exlog.html">Workout Log <span class="sr-only">(current)</span></a></li>
+						<li class="active"><a href="#">Weight Chart</a></li>
+						<li><a href="./profile.html">Profile</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+					<h1>Your Weight</h1>       
+					<canvas id="chart" style="width: 100%; height: 65vh; background: #222; border: 1px solid #555652; margin-top: 10px;"></canvas>
+
+					<script>
+						var ctx = document.getElementById("chart").getContext('2d');
+						var myChart = new Chart(ctx, {
+						type: 'line',
+						data: {
+							labels: [<?php echo $Date; ?>],
+							datasets: [{
+								label: 'Current Weight',
+								data: [<?php echo $Current_Weight; ?>],
+								backgroundColor: 'transparent',
+								borderColor:'rgba(255,99,132)',
+								borderWidth: 3
+							}]		        
+						},
+							
+					
+						options:{
+							scales: {scales:{yAxes: [{beginAtZero: false}], xAxes: [{autoskip: true, maxTicketsLimit: 20}]}},
+							tooltips:{mode: 'index'},
+							legend:{display: true, position: 'top', labels: {fontColor: 'rgb(255,255,255)', fontSize: 16}}
+						}
+						}
+					);
+					</script>
+				</div>
+			</div>
 		</div>
 		<!-- Bootstrap core JavaScript
 		================================================== -->
