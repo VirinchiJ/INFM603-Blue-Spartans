@@ -22,7 +22,59 @@
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="./js/jquery.jsontotable.js"></script>
+	<script type="text/javascript">
+	
+	function init()
+	{
+	urlParams = new URLSearchParams(window.location.search);
+	uid = urlParams.get('userid');
+	
+	
+		$.getJSON( "/getClients.py", {userId:uid},function( data ) {
+            $.each(data, function (index, value) {
+				   
+				var name= value.First_Name+" "+ value.Last_Name;
+				$('#clientList').append("<option value='" + value.User_ID+"'>"+name+"</option>");
+				
+
+					
+                });
+			}
+			)
+				
+    }
+	init();
+	
+	function redirect()
+	{
+	var user=$('#clientList').val();
+	urlParams = new URLSearchParams(window.location.search);
+	role = urlParams.get('roleid');
+
+	window.location.href ="http://g2.psjconsulting.com/chart.php?userid="+user+"&roleid="+role;
+	 
+
+	}
+
+	function log()
+	{
+	var user=$('#clientList').val();
+	urlParams = new URLSearchParams(window.location.search);
+	role = urlParams.get('roleid');
+
+	
+	 window.location.href ="http://g2.psjconsulting.com/displaylog.py?userid="+user;
+
+	}
+	
+		
+
+	
+
+	</script>
+		
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -42,30 +94,38 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Hello<span id="userName"></span></a>
+          <a class="navbar-brand" href="#">Hello<span id="User"></span></a>
         </div>
       </div>
     </nav>
-    
+
+    <h1 align="center">My Clients</h1>
+    <br>
     <div class="container-fluid">
-      <div class="row">
-          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1>My Clients</h1>
-            <div class="input-group">
-              <select class="custom-select" id="inputGroupSelect04">
-                <option selected>Choose...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button">Button</button>
-              </div>
-            </div>
-          </div>
+      <div class="input-group">
+       <p>Select a User:</p> <select class="custom-select" name="clientList" id="clientList" style="text-align:center">
+          <option selected>Choose...</option>
+          
+        </select>
+        <div class="input-group-append">
+	</div>
+	</br>
+	</br>
+	</br>
+	<tr>
+	<td>
+          <button class="btn btn-primary" type="submit" onclick=redirect() >View User Dashboard</button>
+	</td>
+	</br>
+	</br>
+	</br>
+	<td>
+          <button class="btn btn-primary" type="submit" onclick=log() >View Exercise Log</button>
+	</td>
+	</tr>
+        </div>
       </div>
     </div>
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
