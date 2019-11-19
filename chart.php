@@ -14,7 +14,7 @@
 	$user=$output['userid']; 
 
 	//query to get data from the table
-	$sql = "SELECT * FROM `Exercise_Log` WHERE User_ID = '$user' ORDER BY Date ASC ";
+	$sql = "SELECT e.User_ID,e.Date,e.Current_Weight,u.Target_Weight,u.Weight FROM `Exercise_Log` e INNER JOIN `UserDetails` u on e.User_ID=u.User_ID WHERE e.User_ID ='$user'  ORDER BY Date ASC ";
     $result = mysqli_query($mysqli, $sql);
 
 	//loop through the returned data
