@@ -22,7 +22,7 @@ database = mysql.connector.connect(
 mycursor = database.cursor()
 print("""
 <form method = "post" action = "addexercise.py"><table class="table table-striped">
-<thead><tr><th>Date</th><th>Exercise</th><th>Calories</th><th>Duration/Repetitions</th><th>Current Weight(kg)</th></tr></thead>
+<thead><tr><th>Date</th><th>Exercise</th><th>Calories</th><th>Duration/Repetitions</th><th>Current Weight(lbs)</th></tr></thead>
 <tbody><tr>
 <td><input type= "date" name= \"ipdate\"></td>
 <td><select name = \"ipexercisetype\">
@@ -37,5 +37,5 @@ print("""
 <td><input type = "number" name = \"ipcal\"></td>
 <td><input type = "number" name = \"ipduration\"></td>
 <td><input type = "number" name = \"ipweight\"></td></tr></tbody> 
-</table><input type = \"submit\" value = \"Add an exercise log Now\" /></form>""")
+</table><input type = \"submit\" value = \"Submit\" /></form>""")
   
