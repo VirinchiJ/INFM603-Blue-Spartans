@@ -20,20 +20,36 @@ database = mysql.connector.connect(
 )
 
 mycursor = database.cursor()
-# check if email id exists
-sql = f"SELECT User_ID FROM Users WHERE Email_ID = \'{Email}\' and Password= \'{Password}\'"
+# check if email id exists in users table
+sql = f"SELECT User_ID, Role_ID FROM Users WHERE Email_ID = \'{Email}\' and Password= \'{Password}\'"
 mycursor.execute(sql)
-result = mycursor.fetchone()
+resultUser = mycursor.fetchone()
 
-if result is not None:
-    result=[]
-    rawjson = {"Tag":"success","id":Email,"pass":Password}
-    result.append(rawjson)
-    print(json.dumps(result, indent=3))
-    database.close()
+mycursor = database.cursor()
+#check if email id exists in trainers table
+sql = f"SELECT Trainer_ID, Role_ID FROM Trainers WHERE Email_ID = \'{Email}\' and Password= \'{Password}\'"
+mycursor.execute(sql)
+resultTrainer = mycursor.fetchone()
+
+if resultUser is not None:
+ result=[]
+ userid= resultUser[0]
+ roleid = resultUser[1]
+ rawjson = {"Tag":"success","UserId":userid,"RoleId":roleid}
+ result.append(rawjson)
+ print(json.dumps(result, indent=3))
+ database.close()
+elif resultTrainer is not None:
+ result=[]
+ userid= resultTrainer[0]
+ roleid = resultTrainer[1]
+ rawjson = {"Tag":"success","UserId":userid,"RoleId":roleid}
+ result.append(rawjson)
+ print(json.dumps(result, indent=3))
+ database.close()
 else:
-    #return fail to UI
+#return fail to UI
     result=[]
-    rawjson = {"Tag":"fail","id":Email,"pass":Password}
+    rawjson = {"Tag":"fail"}
     result.append(rawjson)
     print(json.dumps(result, indent=3))
