@@ -66,7 +66,7 @@
 
 	<body>
 		
-	<nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -81,10 +81,8 @@
           <li><a href="https://www.mayoclinic.org/healthy-lifestyle/fitness/in-depth/fitness/art-20048269" target="_blank">Getting Started</a></li>
           <li><a href="https://www.jefit.com/exercises/" target="_blank">Exercises</a></li>
           <li><a href="https://www.webmd.com/fitness-exercise/default.htm" target="_blank">Health</a></li>
-          <li><a href="#"><img height="25" src="https://i.pinimg.com/474x/5a/39/e4/5a39e471b06ab93b6c802768238b80c0--logo-google-crossfit.jpg"</a></li>
         </ul>
       </div>
-    </nav>
     </nav>
 
 		<div class="container-fluid">
