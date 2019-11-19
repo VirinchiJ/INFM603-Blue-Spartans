@@ -59,8 +59,27 @@
 				   console.log(roleid);
 				   if(status == "success")
 								{	
-									alert("Login Successful ")
+									
 									//Navigate to Dashboard page
+									
+									if(val.RoleId==1)
+									{
+									
+									window.location.href = "http://g2.psjconsulting.com/exlogtest.html?userid="+userid+"&roleid="+val.RoleId;
+									}
+									else if (val.RoleId=2)
+									{
+									
+									window.location.href = "http://g2.psjconsulting.com/clients.html?userid="+userid+"&roleid="+val.RoleId;
+									}
+									else
+									{
+									alert("Invalid input.Please check again.")
+									}
+									
+									
+									//Navigate to Dashboard page
+									
 								}
 							else
 								{
@@ -71,9 +90,14 @@
 					
                 });
 			})
-				
+						
 			
 		}
+		
+	
+			
+			
+		
 	
 	</script>
 	
