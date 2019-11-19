@@ -89,7 +89,7 @@
 			<div class="row">
 				<div class="col-sm-3 col-md-2 sidebar">
 					<ul class="nav nav-sidebar">
-						<li><a href="./exlog.html">Workout Log <span class="sr-only">(current)</span></a></li>
+						<li><a href="./exlog.html">Workout Log <span class="sr-only">Workout Log</span></a></li>
 						<li class="active"><a href="#">Weight Chart</a></li>
 						<li><a href="./profile.html">Profile</a></li>
 						<li><a href="./signin.html" class="text-danger">Sign Out</a></li>
