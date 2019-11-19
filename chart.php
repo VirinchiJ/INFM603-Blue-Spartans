@@ -8,10 +8,13 @@
 
 	$Current_Weight = '';
     $Date = '';
-
+	
+	$url=parse_str($_SERVER['QUERY_STRING'], $output);
+	$user='';
+	$user=$output['userid']; 
 
 	//query to get data from the table
-	$sql = "SELECT * FROM `Exercise_Log` WHERE User_ID = 1 ORDER BY Date ASC ";
+	$sql = "SELECT * FROM `Exercise_Log` WHERE User_ID = '$user' ORDER BY Date ASC ";
     $result = mysqli_query($mysqli, $sql);
 
 	//loop through the returned data
