@@ -14,15 +14,8 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../Downloads/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
-    <link href="../Downloads/INFM603-Blue-Spartans-master/INFM603-Blue-Spartans-master/css/dashboard.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../Downloads/assets/js/ie-emulation-modes-warning.js"></script>
+    <link href="dashboard.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -33,7 +26,7 @@
 
   <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -45,23 +38,25 @@
           <a class="navbar-brand" href="#">Spartan</a>
         </div>
       </div>
-    </nav>
+	  </nav>
+    <br><br><br><br>
 
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Workout Log <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Weight Chart</a></li>
+            <li class="active"><a href="exlogtest.html">Workout Log <span class="sr-only">(current)</span></a></li>
+            <li><a href="chart.php" target="_blank">Weight Chart</a></li>
             <li><a href="#">Profile</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Dashboard</h1>
+			<h2 style="font-size: 100%">Use the form to record your exercise logs.</h2>
           <div class="table-responsive">
-            <iframe src="http://tackchen.psjconsulting.com/pptest.py" height="120px" width="100%"></iframe>
-          </div>
-        </div>
+            <iframe src="pptest.py" height="300px" width="100%"></iframe></div>
+		  <h2 style="font-size: 100%"><a href="#"  onClick ="window.open ('calendar.html','newwindow','height=300,width=800,top=400,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no')">Use the calender to view your exercise logs.</a></h2>
+</div>
       </div>
     </div>
 

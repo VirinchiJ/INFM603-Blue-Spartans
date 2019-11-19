@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Calendar</title>
+    <style>
+       
+        *{margin:0px;padding:0px;}
+
+        
+        .calendar{
+            width: 80%;
+            margin: auto;
+            height: auto;
+            width: 240px;
+            height: 400px;
+            display: block;
+        }
+
+        .calendar .calendar-title-box{
+            position: relative;
+            width: 175%;
+            height: 36px;
+            line-height: 36px;
+            text-align:center;
+            border-bottom: 1px solid #ddd;
+            color: #0F0F0F;
+        }
+
+        .calendar .prev-month {
+            position: absolute;
+            top: 12px;
+            left: 0px;
+            display: inline-block;
+            width: 0px;
+            height: 0px;
+            border-left: 0px;
+            border-top: 6px solid transparent;
+            border-right: 8px solid #999;
+            border-bottom: 6px solid transparent;
+            cursor: pointer;
+        }
+
+        .calendar .next-month {
+            position: absolute;
+            top: 12px;
+            right: 0px;
+            display: inline-block;
+            width: 0px;
+            height: 0px;
+            border-right: 0px;
+            border-top: 6px solid transparent;
+            border-left: 8px solid #999;
+            border-bottom: 6px solid transparent;
+            cursor: pointer;
+        }
+
+
+       
+        .calendar-table{
+            width: 100%;
+            border-collapse: collapse;
+            text-align:center;
+        }
+
+        .calendar-table tr{
+            height: 30px;
+            line-height: 10px;
+        }
+
+        .currentDay {
+            color: red;
+        }
+
+        .currentMonth {
+            color: #999;
+        }
+
+        .otherMonth{
+            color: #ede;
+        }
+        .calendar-body-box {
+            line-height: 36px;
+        }
+        td,th{
+            color: #0F0F0F;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    <nav class="yellow" style="height: auto;">
+        <div class="calendar" id="calendar"></div>
+    </nav>
+<script>
+    
+    (function(){
+        
+        var dateObj = (function(){
+            var _date = new Date();    
+            return {
+                getDate : function(){
+                    return _date;
+                },
+                setDate : function(date) {
+                    _date = date;
+                }
+            };
+        })();
+
+        renderHtml(0);
+        showCalendarData();
+        bindEvent();
+        clickdateinfo();
+
+        function renderHtml(tag) {
+            var calendar = document.getElementById("calendar");
+            calendar.innerHTML ="";
+            var titleBox = document.createElement("div");  
+            var bodyBox = document.createElement("div");  
+
+            titleBox.className = 'calendar-title-box';
+            titleBox.innerHTML = "<span class='prev-month' id='prevMonth'></span>" +
+                "<span class='calendar-title' id='calendarTitle'></span>" +
+                "<span id='nextMonth' class='next-month'></span>";
+            calendar.appendChild(titleBox);    
+
+            bodyBox.className = 'calendar-body-box';
+            var _headHtml = "<tr>" +
+                "<th> Sunday </th>" +
+                "<th> Monday </th>" +
+                "<th> Tuesday </th>" +
+                "<th> Wednesday </th>" +
+                "<th> Thursday </th>" +
+                "<th> Friday </th>" +
+                "<th> Saturday </th>" +
+                "</tr>";
+            var _bodyHtml = "";
+
+            if(tag == 1){
+                for(var i = 0; i < 5; i++) {
+                        _bodyHtml += "<tr class='"+i+"'>" +
+                            "<td></td>" +
+                            "<td></td>" +
+                            "<td></td>" +
+                            "<td></td>" +
+                            "<td></td>" +
+                            "<td></td>" +
+                            "<td></td>" +
+                            "</tr>";
+                }
+                bodyBox.innerHTML = "<table id='calendarTable' class='calendar-table'>" +
+                    _headHtml + _bodyHtml +
+                    "</table><span id='all'>Fold</span>";
+            }
+            if(tag == 0){
+                for(var i = 0; i < 5; i++) {
+                    if(i>0){
+                        _bodyHtml += "<tr class='"+i+"' style='display: none'>" +
+                            "<td></td>" +
+                            "<td></td>" +
+                            "<td></td>" +
+                            "<td></td>" +
+                            "<td></td>" +
+                            "<td></td>" +
+                            "<td></td>" +
+                            "</tr>";
+                    }else{
+                        _bodyHtml += "<tr class='"+i+"'>" +
+                            "<td></td>" +
+                            "<td></td>" +
+                            "<td></td>" +
+                            "<td></td>" +
+                            "<td></td>" +
+                            "<td></td>" +
+                            "<td></td>" +
+                            "</tr>";
+                    }
+                }
+                bodyBox.innerHTML = "<table id='calendarTable' class='calendar-table'>" +
+                    _headHtml + _bodyHtml +
+                    "</table><span id='all'>Unfold</span>";
+            }
+            calendar.appendChild(bodyBox);
+        }
+
+        function showCalendarData() {
+            var _year = dateObj.getDate().getFullYear();
+            var _month = dateObj.getDate().getMonth() + 1;
+            var _dateStr = getDateStr(dateObj.getDate());
+
+            var calendarTitle = document.getElementById("calendarTitle");
+            var titleStr = _dateStr.substr(0, 4) + "-" + _dateStr.substr(4,2);
+            calendarTitle.innerText = titleStr;
+
+            var _table = document.getElementById("calendarTable");
+            var _tds = _table.getElementsByTagName("td");
+            var _firstDay = new Date(_year, _month - 1, 1);  
+            for(var i = 0; i < _tds.length; i++) {
+                var _thisDay = new Date(_year, _month - 1, i + 1 - _firstDay.getDay());
+                var _thisDayStr = getDateStr(_thisDay);
+                _tds[i].innerText = _thisDay.getDate();
+                _tds[i].data = _thisDayStr;
+                _tds[i].setAttribute('data', _thisDayStr);
+                if(_thisDayStr == getDateStr(new Date())) {    
+                    _tds[i].className = 'currentDay';
+                }else if(_thisDayStr.substr(0, 6) == getDateStr(_firstDay).substr(0, 6)) {
+                    _tds[i].className = 'currentMonth';  
+                }else {    
+                    _tds[i].className = 'otherMonth';
+                }
+            }
+        }
+
+        function bindEvent() {
+            var prevMonth = document.getElementById("prevMonth");
+            var nextMonth = document.getElementById("nextMonth");
+            addEvent(prevMonth, 'click', toPrevMonth);
+            addEvent(nextMonth, 'click', toNextMonth);
+            var p = document.getElementById("all");
+            if(p.innerHTML == "Unfold"){
+                addEvent(p,'click',function (e) {
+                    renderHtml(1);
+                    showCalendarData();
+                    bindEvent();
+                    clickdateinfo();
+                })
+            }
+            if(p.innerHTML == "Fold"){
+                addEvent(p,'click',function (e) {
+                    renderHtml(0);
+                    showCalendarData();
+                    bindEvent();
+                    clickdateinfo();
+                })
+            }
+        }
+
+        function addEvent(dom, eType, func) {
+            if(dom.addEventListener) {  
+                dom.addEventListener(eType, function(e){
+                    func(e);
+                });
+            } else if(dom.attachEvent){  
+                dom.attachEvent('on' + eType, function(e){
+                    func(e);
+                });
+            } else {  
+                dom['on' + eType] = function(e) {
+                    func(e);
+                }
+            }
+        }
+
+        function toPrevMonth() {
+            var date = dateObj.getDate();
+            dateObj.setDate(new Date(date.getFullYear(), date.getMonth() - 1, 1));
+            showCalendarData();
+        }
+
+        function toNextMonth() {
+            var date = dateObj.getDate();
+            dateObj.setDate(new Date(date.getFullYear(), date.getMonth() + 1, 1));
+            showCalendarData();
+        }
+
+        function getDateStr(date) {
+            var _year = date.getFullYear();
+            var _month = date.getMonth() + 1;    
+            var _d = date.getDate();
+
+            _month = (_month > 9) ? ("" + _month) : ("0" + _month);
+            _d = (_d > 9) ? ("" + _d) : ("0" + _d);
+            return _year + _month + _d;
+        }
+
+        function test(datestr){
+            uid=1;
+            window.location.href="http://tackchen.psjconsulting.com/log.py?date="+datestr+"&uid="+uid;
+             
+        }
+
+        function clickdateinfo(){
+            var table = document.getElementById("calendarTable");
+            var tds = table.getElementsByTagName('td');
+            for(var i = 0; i < tds.length; i++) {
+                addEvent(tds[i], 'click', function(e){
+                    test(e.target.getAttribute('data'));
+                });
+            }
+        }
+
+
+        var p = document.getElementById("all");
+        addEvent(p,'click',function (e) {
+            renderHtml(1);
+            showCalendarData();
+            bindEvent();
+            clickdateinfo();
+        })
+    })();
+
+    
+
+</script>
+</body>
+</html>
+
