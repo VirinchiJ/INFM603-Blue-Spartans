@@ -72,7 +72,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Hello<span id="userName"></span></a>
+          <a class="navbar-brand" href="#">Weight and Watch</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="https://www.mayoclinic.org/healthy-lifestyle/fitness/in-depth/fitness/art-20048269" target="_blank">Getting Started</a></li>
