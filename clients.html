@@ -38,7 +38,6 @@
 				var name= value.First_Name+" "+ value.Last_Name;
 				$('#clientList').append("<option value='" + value.User_ID+"'>"+name+"</option>");
 				
-
 					
                 });
 			}
@@ -52,22 +51,19 @@
 	var user=$('#clientList').val();
 	urlParams = new URLSearchParams(window.location.search);
 	role = urlParams.get('roleid');
-
 	window.location.href ="http://g2.psjconsulting.com/chart.php?userid="+user+"&roleid="+role;
 	 
-
 	}
-
 	function log()
 	{
-    var user=$('#clientList').val();
-    urlParams = new URLSearchParams(window.location.search);
-    role = urlParams.get('roleid');
-
-    
-    window.location.href ="http://g2.psjconsulting.com/displaylog.py?userid="+user;
-
+	var user=$('#clientList').val();
+	urlParams = new URLSearchParams(window.location.search);
+	role = urlParams.get('roleid');
+	
+	 window.location.href ="http://g2.psjconsulting.com/displaylog.py?userid="+user;
 	}
+	
+		
 	
 	</script>
 		
@@ -80,32 +76,34 @@
   </head>
 
   <body>
-    <div class="container">
-      <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="./exlog.html">Weight and Watch</a>
-          </div>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Weight and Watch<span id="User"></span></a>
         </div>
-      </nav>
-    
-      <form class="form-signin">
-        <h1 class="form-signin-heading">My Clients</h2>
-        <label for="clientList" class="sr-only">Email address</label>
-        <select name="clientList" id="clientList" class="form-control">
-          <option selected>Choose A Client</option>
+      </div>
+    </nav>
+
+    <div class="container-fluid" align="center">
+      <h1 class="page-header">My Clients</h1>
+      <div class="input-group">
+        <select class="custom-select" name="clientList" id="clientList" style="text-align:center">
+          <option selected>Choose a Client</option>
         </select>
-        <br>
-        
-        <button class="btn btn-primary" type="submit" onclick="redirect()">View User Dashboard</button>
-        <button class="btn btn-primary" type="submit" onclick="log()">View Exercise Log</button>
-      </form>
+        </br>
+        </br>
+        <button class="btn btn-primary" type="submit" onclick=redirect() >View User Dashboard</button>
+        </br>
+        </br>
+        <button class="btn btn-primary" type="submit" onclick=log() >View Exercise Log</button>
+      </div>
     </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->

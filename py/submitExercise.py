@@ -21,7 +21,7 @@ database = mysql.connector.connect(
 )
 mycursor = database.cursor()
 print("""
-<form method = "post" action = "addexercise.py"><table class="table table-striped">
+<form method = "post" action = "./addexercise.py"><table class="table table-striped">
 <thead class="thead-light"><tr><th>Date</th><th>Exercise</th><th>Calories</th><th>Duration/Repetitions</th><th>Current Weight(lbs)</th></tr></thead>
 <tbody><tr>
 <td><input type= "date" name= \"ipdate\"></td>
