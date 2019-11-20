@@ -2,7 +2,7 @@
 
 print ("Content-type: text/html")
 print()
-
+import os
 # Get the data from the form
 import cgi
 formData = cgi.FieldStorage()
@@ -11,7 +11,11 @@ formData = cgi.FieldStorage()
 import cgitb
 cgitb.enable()
 
-username = formData.getvalue("username")
+querystring = os.environ['QUERY_STRING']
+temp=querystring.split('=')
+userid=temp[1]
+
+#username = formData.getvalue("username")
 
 import mysql.connector
 
@@ -23,11 +27,11 @@ database = mysql.connector.connect(
   database = "g2"
 )
 mycursor = database.cursor()
-sql = f"SELECT User_ID FROM Users WHERE CONCAT(First_Name,\' \',Last_Name) = \'{username}\'"
-mycursor.execute(sql)
-myresult = mycursor.fetchone()
+#sql = f"SELECT User_ID FROM Users WHERE CONCAT(First_Name,\' \',Last_Name) = \'{username}\'"
+#mycursor.execute(sql)
+#myresult = mycursor.fetchone()
 # get next row (only row)
-userid = myresult[0]
+#userid = myresult[0]
 # check for error here
 # build the table header in HTML (and then we'll print the actual data from Python)
 print("""
