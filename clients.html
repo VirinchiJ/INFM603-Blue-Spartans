@@ -80,47 +80,32 @@
   </head>
 
   <body>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Hello<span id="User"></span></a>
+    <div class="container">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Hello<span id="User"></span></a>
+          </div>
         </div>
-      </div>
-    </nav>
-
-    <h1 align="center">My Clients</h1>
-    <br>
-    <div class="container-fluid">
-      <div class="input-group">
-       <p>Select a User:</p> <select class="custom-select" name="clientList" id="clientList" style="text-align:center">
+      </nav>
+    
+      <form class="form-signin">
+        <h1 class="form-signin-heading">My Clients</h2>
+        <label for="clientList" class="sr-only">Email address</label>
+        <select name="clientList" id="clientList" class="form-control">
           <option selected>Choose...</option>
-          
         </select>
-        <div class="input-group-append">
-	</div>
-	</br>
-	</br>
-	</br>
-	<tr>
-	<td>
-          <button class="btn btn-primary" type="submit" onclick=redirect() >View User Dashboard</button>
-	</td>
-	</br>
-	</br>
-	</br>
-	<td>
-          <button class="btn btn-primary" type="submit" onclick=log() >View Exercise Log</button>
-	</td>
-	</tr>
-        </div>
-      </div>
+        <br>
+        
+        <button class="btn btn-primary" type="submit" onclick=redirect()>View User Dashboard</button>
+        <button class="btn btn-primary" type="submit" onclick=log()>View Exercise Log</button>
+      </form>
     </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
